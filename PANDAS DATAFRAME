@@ -1,0 +1,41 @@
+#PANDAS DATAFRAME FUNCTIONS
+import pandas as pd
+import numpy as np
+#DATAFRAME.APPLY FUNCTION
+print("DataFrame .apply function :\n ")
+info=pd.DataFrame([[2,7]]*3,columns=['P','Q'])
+print("\n original data frame :\n",info)
+print("\n square root of the data frame :\n",info.apply (np.sqrt))
+print("\n sum of the each column:\n",info.apply(np.sum,axis=0))
+print("\n sum of the each row:\n",info.apply(np.sum,axis=1))
+info=pd.DataFrame([[1,5,7],[2,7,8],[3,6,9]],columns=['x','y','z'])
+print("\n original DataFrame:\n",info)
+print("\n Minimum and maximum of each column:\n")
+print(info.agg(['min','max']))
+
+#DataFrame.Assign function
+print("\n DataFrame.assign function:\n")
+d2=pd.DataFrame([['Dale',123],['Mark',143]],columns=['Emp','id'])
+print("\n original DataFrame :\n ",d2)
+d2['Age']=[35,40]
+print("\n adding new columns:\n",d2)
+d=d2.assign(sex=['Male','Male'])
+print("\n adding new column:\n",d)
+
+#DataFrame.Sort function
+print("\n DataFrame sort function:\n")
+info= pd.DataFrame(np.random.randn(5,2),index=[3,2,0,4,1],columns=['col3','col4'])
+print(info)
+info2=info.sort_index()
+print("\n sort index:\n ",info2)
+#info=pd.DataFrame({'col1':[7,1,8,3],'col2':[8,12,4,9]})
+info3=info.sort_values(by='col3')
+print("\n sort values :\n ",info3)
+
+#DataFrame.Merge FUnction
+print("\n DataFrame.MergeFunction:\n")
+l=pd.DataFrame({'id':[1,2,3,4,5],'name':['alex','arendan','arolin','avis','anson'],'sub':['sub1','sub2','sub3','sub6','sub5']})
+print(l)
+r=pd.DataFrame({'id':[1,2,3,4,5],'name':[' brenda','belin','biplin','berry','bary'],'sub':['sub1','sub2','sub3','sub4','sub5']})
+print(r)
+print(pd.merge(l,r,on='id'))
