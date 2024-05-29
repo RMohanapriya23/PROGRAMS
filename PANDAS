@@ -1,0 +1,32 @@
+#PANDA SERIES
+import pandas as pd
+import numpy as np
+#creating series from array
+arr=np.array(['P','a','n','d','a','s'])
+a=pd.Series(arr)
+print("series from array:")
+print(a)
+
+#series from dictionary
+arr={'x':0.,'y':1.,'z':2.}
+b=pd.Series(arr)
+print("\n\nseries from dictionary:\n")
+print(b)
+
+#series using scalar
+x=pd.Series(4,index=[0,1,2,3])
+print("\n Series using scalar\n")
+print(x)
+
+#series through index
+x= pd.Series((1,2,3),index=['a','b','c'])
+print("\n series through index:")
+print(x)
+
+a=pd.Series(data=[1,2,3,4])
+print("\n a series:\n",a)
+print("\n index:\n ",a.index)
+print("\n values:\n",a.values)
+print("\n shape:\n",a.shape)
+print("\n dimension:\n",a.ndim)
+print("\n size:\n",a.size)
